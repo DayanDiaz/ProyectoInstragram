@@ -7,13 +7,13 @@ import javax.swing.JPasswordField;
 
 
 @SuppressWarnings("serial")
-public class Login extends JFrame {
+public class GUILogin extends JFrame {
 	private JButton bEnter;
 	private JButton bRegister;
 	private JPasswordField pfPassword;
 	private JTextField tfUser;
 
-	public Login() {
+	public GUILogin() {
 	
 		getContentPane().add(getBEnter());
 		getContentPane().add(getBRegister());

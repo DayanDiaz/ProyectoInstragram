@@ -5,10 +5,10 @@ import javax.swing.JFrame;
 
 
 @SuppressWarnings("serial")
-public class Chat extends JFrame {
+public class GUIChat extends JFrame {
 
 
-	public Chat() {
+	public GUIChat() {
 		
 		
 		
