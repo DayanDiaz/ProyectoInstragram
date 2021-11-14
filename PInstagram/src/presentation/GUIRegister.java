@@ -3,15 +3,25 @@ package presentation;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import java.awt.Font;
-import java.awt.Color;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.SystemColor;
+import java.awt.Toolkit;
+import java.awt.Color;
+
+import utils.RouteImages;
 
 @SuppressWarnings("serial")
 public class GUIRegister extends JFrame {
 
+	//BACKGROUND
+	private JLabel lBackGround;
+	
 	//COMPONENTS	
 	private JPanel pLogin;
 	private JPanel pRegister;
@@ -37,21 +47,35 @@ public class GUIRegister extends JFrame {
 		getContentPane().add(getPLogin());
 		getContentPane().add(getPRegister());
 		
+		getContentPane().add(getLBackGround());
+		
 		init();
 	}
 	
-	private void init() {	
+	private void init() {
+		setTitle("Regístrate");
 		setSize(350, 586);
-		setVisible (true);
 		getContentPane().setLayout(null);	
+		setVisible (true);
 		setLocationRelativeTo(null);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(RouteImages.ICON));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	//METHODS
+	public JLabel getLBackGround() {
+		if (lBackGround == null) {
+			lBackGround = new JLabel("");
+			lBackGround.setIcon(new ImageIcon(RouteImages.IBACKGROUND));
+			lBackGround.setBounds(0, 0, 391, 386);
+		}
+		return lBackGround;
+	}
+	
 	public JPanel getPLogin() {
 		if (pLogin == null) {
 			pLogin = new JPanel();
+			pLogin.setOpaque(false);
 			pLogin.setBounds(10, 471, 316, 65);
 			pLogin.setLayout(null);
 			pLogin.add(getLHaveAccount());
@@ -63,6 +87,7 @@ public class GUIRegister extends JFrame {
 	public JPanel getPRegister() {
 		if (pRegister == null) {
 			pRegister = new JPanel();
+			pRegister.setOpaque(false);
 			pRegister.setBounds(10, 11, 316, 449);
 			pRegister.setLayout(null);
 			pRegister.add(getLInstagram());
@@ -81,11 +106,13 @@ public class GUIRegister extends JFrame {
 	
 	public JLabel getLInstagram() {
 		if (lInstagram == null) {
-			lInstagram = new JLabel("Instagram");
-			lInstagram.setBounds(96, 20, 153, 43);
+			lInstagram = new JLabel("");	
+			ImageIcon image = new ImageIcon(RouteImages.INSTAGRAM);		
+			lInstagram.setIcon(new ImageIcon(image.getImage().getScaledInstance(200, 50, Image.SCALE_DEFAULT)));
+			lInstagram.setBounds(32, 11, 268, 72);
 			lInstagram.setForeground(Color.BLACK);
 			lInstagram.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 36));
-			lInstagram.setHorizontalAlignment(SwingConstants.CENTER);
+			lInstagram.setHorizontalAlignment(SwingConstants.CENTER);	
 		}
 		return lInstagram;
 	}
@@ -95,7 +122,7 @@ public class GUIRegister extends JFrame {
 			lMessage1 = new JLabel("Reg\u00EDstrate para ver fotos y videos");
 			lMessage1.setVerticalAlignment(SwingConstants.CENTER);
 			lMessage1.setHorizontalAlignment(SwingConstants.CENTER);
-			lMessage1.setForeground(Color.LIGHT_GRAY);
+			lMessage1.setForeground(Color.GRAY);
 			lMessage1.setFont(new Font("Dialog", Font.BOLD, 16));
 			lMessage1.setBounds(32, 74, 268, 38);
 		}
@@ -106,7 +133,7 @@ public class GUIRegister extends JFrame {
 		if (lMessage2 == null) {
 			lMessage2 = new JLabel("de tus amigos.");
 			lMessage2.setHorizontalAlignment(SwingConstants.CENTER);
-			lMessage2.setForeground(Color.LIGHT_GRAY);
+			lMessage2.setForeground(Color.GRAY);
 			lMessage2.setFont(new Font("Dialog", Font.BOLD, 16));
 			lMessage2.setBounds(32, 104, 268, 28);
 		}
@@ -118,7 +145,7 @@ public class GUIRegister extends JFrame {
 		if (lConditions1 == null) {
 			lConditions1 = new JLabel("Al registrate, aceptas nuestras Condiciones, la");
 			lConditions1.setHorizontalAlignment(SwingConstants.CENTER);
-			lConditions1.setForeground(Color.LIGHT_GRAY);
+			lConditions1.setForeground(Color.GRAY);
 			lConditions1.setFont(new Font("Dialog", Font.PLAIN, 12));
 			lConditions1.setBounds(32, 390, 268, 28);
 		}
@@ -129,7 +156,7 @@ public class GUIRegister extends JFrame {
 		if (lConditions2 == null) {
 			lConditions2 = new JLabel("Pol\u00EDtica de datos y la Pol\u00EDtica de cookies.");
 			lConditions2.setHorizontalAlignment(SwingConstants.CENTER);
-			lConditions2.setForeground(Color.LIGHT_GRAY);
+			lConditions2.setForeground(Color.GRAY);
 			lConditions2.setFont(new Font("Dialog", Font.PLAIN, 12));
 			lConditions2.setBounds(32, 410, 268, 28);
 		}
@@ -149,7 +176,7 @@ public class GUIRegister extends JFrame {
 		if (lLoginAccess == null) {
 			lLoginAccess = new JLabel("Inicia sesi\u00F3n");
 			lLoginAccess.setBounds(180, 16, 76, 28);
-			lLoginAccess.setForeground(new Color(135, 206, 250));
+			lLoginAccess.setForeground(SystemColor.textHighlight);
 			lLoginAccess.setFont(new Font("Dialog", Font.BOLD, 12));
 		}
 		return lLoginAccess;
