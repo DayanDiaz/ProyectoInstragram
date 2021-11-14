@@ -1,18 +1,27 @@
 package presentation;
 
-import java.awt.Color;
-import java.awt.Font;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import javax.swing.ImageIcon;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.SystemColor;
+import java.awt.Toolkit;
+
+import utils.RouteImages;
 
 @SuppressWarnings("serial")
 public class GUILogin extends JFrame {
 
+	//BACKGROUND
+	private JLabel lBackGround;
+	
 	//COMPONENTS
 	private JPanel pLogin;
 	private JPanel pRegister;
@@ -33,21 +42,35 @@ public class GUILogin extends JFrame {
 		getContentPane().add(getPLogin());
 		getContentPane().add(getPRegister());
 		
+		getContentPane().add(getLBackGround());
+		
 		init ();
 	}
 	
 	private void init() {
-		setSize(407, 425);
+		setTitle("Inicia Sesión");
+		setSize(407, 425);	
+		getContentPane().setLayout(null);	
 		setVisible(true);
-		getContentPane().setLayout(null);
 		setLocationRelativeTo(null);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(RouteImages.ICON));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
 	}
 	
 	//METHODS
+	public JLabel getLBackGround() {
+		if (lBackGround == null) {
+			lBackGround = new JLabel("");
+			lBackGround.setIcon(new ImageIcon(RouteImages.IBACKGROUND));
+			lBackGround.setBounds(0, 0, 391, 386);
+		}
+		return lBackGround;
+	}
+	
 	public JPanel getPLogin() {
 		if (pLogin == null) {
 			pLogin = new JPanel();
+			pLogin.setOpaque(false);
 			pLogin.setBounds(10, 11, 371, 282);
 			pLogin.setLayout(null);
 			pLogin.add(getLInstagram());
@@ -62,6 +85,7 @@ public class GUILogin extends JFrame {
 	public JPanel getPRegister() {
 		if (pRegister == null) {
 			pRegister = new JPanel();
+			pRegister.setOpaque(false);
 			pRegister.setBounds(10, 304, 371, 68);
 			pRegister.setLayout(null);
 			pRegister.add(getLRegister());
@@ -72,11 +96,13 @@ public class GUILogin extends JFrame {
 	
 	public JLabel getLInstagram() {
 		if (lInstagram == null) {
-			lInstagram = new JLabel("Instagram");
-			lInstagram.setBounds(116, 11, 153, 43);
+			lInstagram = new JLabel("");	
+			ImageIcon image = new ImageIcon(RouteImages.INSTAGRAM);		
+			lInstagram.setIcon(new ImageIcon(image.getImage().getScaledInstance(200, 50, Image.SCALE_DEFAULT)));
+			lInstagram.setBounds(60, 11, 249, 72);
 			lInstagram.setForeground(Color.BLACK);
 			lInstagram.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 36));
-			lInstagram.setHorizontalAlignment(SwingConstants.CENTER);
+			lInstagram.setHorizontalAlignment(SwingConstants.CENTER);	
 		}
 		return lInstagram;
 	}
@@ -94,7 +120,7 @@ public class GUILogin extends JFrame {
 	public JLabel getLRegister() {
 		if (lRegister == null) {
 			lRegister = new JLabel("Reg\u00EDstrate");
-			lRegister.setForeground(new Color(135, 206, 250));
+			lRegister.setForeground(SystemColor.textHighlight);
 			lRegister.setFont(new Font("Dialog", Font.BOLD, 12));
 			lRegister.setHorizontalAlignment(SwingConstants.LEFT);
 			lRegister.setBounds(221, 25, 77, 21);
