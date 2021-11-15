@@ -34,10 +34,10 @@ public class GUIRegister extends JFrame {
 	private JLabel lHaveAccount;
 	private JLabel lLoginAccess;
 	
-	private JTextField tfCel;
-	private JTextField tfName;
-	private JTextField tfUser;
-	private JTextField tfPassWord;
+	private JPlaceholderTextField tfCel;
+	private JPlaceholderTextField tfName;
+	private JPlaceholderTextField tfUser;
+	private JPlaceholderTextField tfPassWord;
 	
 	private JButton bRegister;
 	
@@ -184,10 +184,10 @@ public class GUIRegister extends JFrame {
 	
 	public JTextField getTfCel() {
 		if (tfCel == null) {
-			tfCel = new JTextField();
+			tfCel = new JPlaceholderTextField(" N\u00FAmero de celular o correo electr\u00F3nico");
 			tfCel.setForeground(Color.LIGHT_GRAY);
 			tfCel.setFont(new Font("Dialog", Font.PLAIN, 12));
-			tfCel.setText(" N\u00FAmero de celular o correo electr\u00F3nico");
+			//tfCel.setText(" N\u00FAmero de celular o correo electr\u00F3nico");
 			tfCel.setBounds(32, 143, 268, 38);
 			tfCel.setColumns(10);
 		}
@@ -196,8 +196,7 @@ public class GUIRegister extends JFrame {
 	
 	public JTextField getTfName() {
 		if (tfName == null) {
-			tfName = new JTextField();
-			tfName.setText(" Nombre completo");
+			tfName = new JPlaceholderTextField(" Nombre completo");
 			tfName.setForeground(Color.LIGHT_GRAY);
 			tfName.setFont(new Font("Dialog", Font.PLAIN, 12));
 			tfName.setColumns(10);
@@ -208,8 +207,7 @@ public class GUIRegister extends JFrame {
 	
 	public JTextField getTfUser() {
 		if (tfUser == null) {
-			tfUser = new JTextField();
-			tfUser.setText(" Nombre de usuario");
+			tfUser = new JPlaceholderTextField(" Nombre de usuario");
 			tfUser.setForeground(Color.LIGHT_GRAY);
 			tfUser.setFont(new Font("Dialog", Font.PLAIN, 12));
 			tfUser.setColumns(10);
@@ -220,8 +218,8 @@ public class GUIRegister extends JFrame {
 	
 	public JTextField getTfPassWord() {
 		if (tfPassWord == null) {
-			tfPassWord = new JTextField();
-			tfPassWord.setText(" Contrase\u00F1a");
+			tfPassWord = new JPlaceholderTextField(" Contrase\u00F1a");
+			
 			tfPassWord.setForeground(Color.LIGHT_GRAY);
 			tfPassWord.setFont(new Font("Dialog", Font.PLAIN, 12));
 			tfPassWord.setColumns(10);

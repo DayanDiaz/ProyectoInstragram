@@ -15,6 +15,7 @@ import java.awt.SystemColor;
 import java.awt.Toolkit;
 
 import utils.RouteImages;
+import javax.swing.JPasswordField;
 
 @SuppressWarnings("serial")
 public class GUILogin extends JFrame {
@@ -31,10 +32,11 @@ public class GUILogin extends JFrame {
 	private JLabel lHaveNotAccount;
 	private JLabel lRegister;
 	
-	private JTextField tfCel;
-	private JTextField tfPassWord;
+	private JPlaceholderTextField tfCel;
+	private JPlaceholderTextField tfPassWord;
 	
 	private JButton bLogin;
+	private JPasswordField pfPassWord;
 
 	public GUILogin() {
 		
@@ -76,8 +78,9 @@ public class GUILogin extends JFrame {
 			pLogin.add(getLInstagram());
 			pLogin.add(getLPassWord());
 			pLogin.add(getTfCel());
-			pLogin.add(getTfPassWord());
+			//pLogin.add(getTfPassWord());
 			pLogin.add(getBLogin());
+			pLogin.add(getPfPassWord());
 		}
 		return pLogin;
 	}
@@ -140,11 +143,11 @@ public class GUILogin extends JFrame {
 	
 	public JTextField getTfCel() {
 		if (tfCel == null) {
-			tfCel = new JTextField();
+			tfCel = new JPlaceholderTextField(" Tel\u00E9fono, usuario o correo electr\u00F3nico");
 			tfCel.setHorizontalAlignment(SwingConstants.LEFT);
 			tfCel.setForeground(Color.LIGHT_GRAY);
 			tfCel.setFont(new Font("Dialog", Font.PLAIN, 12));
-			tfCel.setText(" Tel\u00E9fono, usuario o correo electr\u00F3nico");
+			//tfCel.setText(" Tel\u00E9fono, usuario o correo electr\u00F3nico");
 			tfCel.setBounds(40, 95, 294, 38);
 			tfCel.setColumns(10);
 		}
@@ -153,8 +156,8 @@ public class GUILogin extends JFrame {
 	
 	public JTextField getTfPassWord() {
 		if (tfPassWord == null) {
-			tfPassWord = new JTextField();
-			tfPassWord.setText(" Contrase\u00F1a");
+			tfPassWord = new JPlaceholderTextField(" Contrase\u00F1a");
+			//tfPassWord.setText(" Contrase\u00F1a");
 			tfPassWord.setForeground(Color.LIGHT_GRAY);
 			tfPassWord.setFont(new Font("Dialog", Font.PLAIN, 12));
 			tfPassWord.setColumns(10);
@@ -173,5 +176,12 @@ public class GUILogin extends JFrame {
 			bLogin.setBounds(40, 200, 294, 29);
 		}
 		return bLogin;
+	}
+	public JPasswordField getPfPassWord() {
+		if (pfPassWord == null) {
+			pfPassWord = new JPasswordField();
+			pfPassWord.setBounds(40, 144, 294, 38);
+		}
+		return pfPassWord;
 	}
 }

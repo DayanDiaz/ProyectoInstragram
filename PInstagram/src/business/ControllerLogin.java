@@ -5,15 +5,19 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import data.DatabaseConnect;
 import presentation.GUILogin;
 
 public class ControllerLogin implements ActionListener, MouseListener{
 
 	public GUILogin guiL;
+	private DatabaseConnect dbc;
 	
 	public ControllerLogin() {
 		
 		guiL = new GUILogin();
+		dbc = DatabaseConnect.getInstance();
+		
 		
 		initAction();
 	}
@@ -27,15 +31,20 @@ public class ControllerLogin implements ActionListener, MouseListener{
 	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getSource() == guiL.getBLogin()) {
-			new ControllerHome();
-			guiL.dispose();
+			
+			if(dbc.search(guiL.getTfCel().getText(), guiL.getPfPassWord().getText())) {
+				new ControllerHome();
+				guiL.dispose();
+			}
 		}
+		
 	}
 
 	//MOUSE LISTENER
 	public void mouseClicked(MouseEvent e) {
 		
 		if(e.getSource() == guiL.getLRegister()) {
+			
 			new ControllerRegister();
 			guiL.dispose();
 		}
@@ -56,4 +65,6 @@ public class ControllerLogin implements ActionListener, MouseListener{
 	public void mouseExited(MouseEvent e) {
 		
 	}
+	
+	
 }
