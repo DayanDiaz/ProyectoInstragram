@@ -23,8 +23,8 @@ public class GUIInfoUser extends JFrame {
 	//COMPONENTS	
 	private JLabel lInstagram;
 	
-	private JTextField tfBirthDate;
-	private JTextField tfGender;
+	private JPlaceholderTextField tfBirthDate;
+	private JPlaceholderTextField tfGender;
 	
 	private JButton bNext;
 
@@ -78,21 +78,20 @@ public class GUIInfoUser extends JFrame {
 	
 	public JTextField getTfBirthDate() {
 		if (tfBirthDate == null) {
-			tfBirthDate = new JTextField();
+			tfBirthDate = new JPlaceholderTextField("Fecha de Nacimiento : año-mes-día");
 			tfBirthDate.setHorizontalAlignment(SwingConstants.LEFT);
 			tfBirthDate.setForeground(Color.LIGHT_GRAY);
 			tfBirthDate.setFont(new Font("Dialog", Font.PLAIN, 12));
-			tfBirthDate.setText(" Fecha de Nacimiento");
 			tfBirthDate.setBounds(40, 81, 294, 38);
 			tfBirthDate.setColumns(10);
+			
 		}
 		return tfBirthDate;
 	}
 	
 	public JTextField getTfGender() {
 		if (tfGender == null) {
-			tfGender = new JTextField();
-			tfGender.setText(" G\u00E9nero");
+			tfGender = new JPlaceholderTextField("Género");
 			tfGender.setForeground(Color.LIGHT_GRAY);
 			tfGender.setFont(new Font("Dialog", Font.PLAIN, 12));
 			tfGender.setColumns(10);

@@ -5,11 +5,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import data.DatabaseConnect;
 import presentation.GUIRegister;
 
 public class ControllerRegister implements ActionListener, MouseListener{
 
+	private String username,password,name,lastName1,lastName2,phone;
 	public GUIRegister guiR;
+	
 	
 	public ControllerRegister() {
 		
@@ -27,7 +30,14 @@ public class ControllerRegister implements ActionListener, MouseListener{
 	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getSource() == guiR.getBRegister()) {
-			new ControllerInfoUser();
+			
+			username = guiR.getTfUser().getText();
+			password = guiR.getTfPassWord().getText();
+			System.out.println(username);
+			name = guiR.getTfName().getText();//Separar nombre de apellidos
+			phone = guiR.getTfCel().getText();
+			
+			new ControllerInfoUser(username,password,name,lastName1,lastName2,phone);
 			guiR.dispose();
 		}	
 	}
